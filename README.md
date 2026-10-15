@@ -6,10 +6,10 @@ A small Chrome and Edge extension for Google Docs, Slides, and Sheets. It hides 
 
 ## Install on a Mac
 
-1. Download and open the latest [Mac installer](https://github.com/JakeATX/docs-comment-warning-helper/releases/latest/download/Install.command).
-2. If macOS blocks it, control-click `Install.command` in Finder, choose **Open**, then confirm **Open**.
+1. Download [Docs Comment Warning Helper for Mac](https://github.com/JakeATX/docs-comment-warning-helper/releases/latest/download/docs-comment-warning-helper-mac.zip) and unzip it.
+2. Control-click Install.command, choose **Open**, then confirm **Open** if macOS asks.
 3. The installer downloads the extension, opens Chrome's extension settings, and shows the extension folder in Finder.
-4. In Chrome, turn on **Developer mode**, click **Load unpacked**, and choose the `docs-comment-warning-helper` folder shown in Finder.
+4. In Chrome, turn on **Developer mode**, click **Load unpacked**, and choose the docs-comment-warning-helper folder shown in Finder.
 5. Reload any open Docs, Slides, or Sheets tabs.
 
 This quick installer removes the unzip-and-find steps. Chrome still requires **Load unpacked** for extensions installed outside the Chrome Web Store. See [Chrome Web Store installation](#chrome-web-store) below for the true one-click path.
@@ -20,16 +20,16 @@ A one-click **Add to Chrome** install requires a Chrome Web Store listing. This 
 
 ## Install manually
 
-1. Download `comment-nag-blocker.zip` from the [latest release](https://github.com/JakeATX/docs-comment-warning-helper/releases/latest).
+1. Download comment-nag-blocker.zip from the [latest release](https://github.com/JakeATX/docs-comment-warning-helper/releases/latest).
 2. Unzip it in a permanent location.
-3. Open `chrome://extensions` (or `edge://extensions`), enable **Developer mode**, and select **Load unpacked**.
+3. Open chrome://extensions (or edge://extensions), enable **Developer mode**, and select **Load unpacked**.
 4. Choose the unzipped extension folder and reload your Google Workspace tabs.
 
 ## What it matches
 
 The extension looks for a popup or toast that contains both a comment/reply term and a rate/frequency phrase. Other errors remain visible. When it hides a match, a small notice appears briefly with a reminder to verify the comment.
 
-If Google's wording changes, edit `RATE_PATTERNS` in `content.js`, then click the extension's reload button in `chrome://extensions`. Set `DEBUG = true` in that file to log matches in the DevTools console.
+If Google's wording changes, edit RATE_PATTERNS in content.js, then click the extension's reload button in chrome://extensions. Set DEBUG = true in that file to log matches in the DevTools console.
 
 ## Privacy
 
