@@ -1,0 +1,32 @@
+name: Package release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package extension and Mac installer
+        run: |
+          mkdir -p dist/docs-comment-warning-helper
+          cp manifest.json content.js dist/docs-comment-warning-helper/
+          cp Install.command dist/Install.command
+          chmod +x dist/Install.command
+          (cd dist && zip -r ../comment-nag-blocker.zip docs-comment-warning-helper)
+          (cd dist && zip -j ../docs-comment-warning-helper-mac.zip Install.command)
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            comment-nag-blocker.zip \
+            docs-comment-warning-helper-mac.zip \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes
